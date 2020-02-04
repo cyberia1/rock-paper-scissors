@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function for randomizing computer choice and returning the value
+      function getComputerChoice() {
+        const choices = ["r", "p", "s"];
+        const randomNumber = Math.floor(Math.random() * choices.length);
+        return choices[randomNumber];
+        console.log(choices);
+      }
+      // function for user input and value return
+      function getUserChoice() {
+        let userChoice = prompt("Enter one of the 3 elements");
+        userChoice = userChoice.toLowerCase();
+        if (userChoice == "r" || userChoice == "p" || userChoice == "s") {
+          return userChoice;
+          console.log(userChoice);
+        } else {
+          console.log("incorrect value");
+        }
+      }
+      // function for determining who wins
+      function comparison(playerChoice, computerChoice) {
+        if (computerChoice == playerChoice) {
+          return "the game is a tie";
+        } else if (playerChoice == "r") {
+          if (computerChoice == "p") {
+            return "you lose";
+          } else {
+            return "you won";
+          }
+        } else if (playerChoice == "p") {
+          if (computerChoice == "s") {
+            return "you lose";
+          } else {
+            return "you win";
+          }
+        } else if (playerChoice == "s") {
+          if (computerChoice == "r") {
+            return "you lose";
+          } else {
+            return "you win";
+          }
+        }
+      }
+      // function to play the game
+      function playGame() {
+        let playerChoice = getUserChoice();
+        let computerChoice = getComputerChoice();
+        console.log(`you threw ${playerChoice}`);
+        console.log(`computer threw ${computerChoice}`);
+        console.log(comparison(playerChoice, computerChoice));
+      }
+    </script>
+  </body>
+</html>
